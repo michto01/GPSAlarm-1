@@ -21,12 +21,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //The setup code (in viewDidLoad in your view controller)
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleFingerTap];
+}
+
+//The event handling method
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self textFieldShouldReturn:self.name];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return true;
 }
 
 @end

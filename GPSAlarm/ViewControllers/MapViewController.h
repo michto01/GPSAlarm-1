@@ -18,9 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *add;
 @property (weak, nonatomic) IBOutlet UIButton *settings;
 
+@property (nonatomic) Boolean pinDropped;
+
 //Model objects
 @property (nonatomic) CLLocationCoordinate2D touchMapCoordinate;
 
 - (void)removeAllPinsButUserLocation;
+- (IBAction)cancel:(id)sender;
+- (void)addNextButton;
 
 @end

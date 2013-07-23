@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4yZ-PF-T6d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4yZ-PF-T6d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -7,7 +7,6 @@
         <!--Main View Controller-->
         <scene sceneID="Atx-iW-qRv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cKl-18-qRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="h2g-E0-3Rr" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VIF-Ox-VkN">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
@@ -68,6 +67,7 @@
                         <outlet property="tableView" destination="MX6-Lv-w7Q" id="F4I-7Y-QnS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKl-18-qRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3179" y="-1811"/>
         </scene>
@@ -178,7 +178,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1JG-DO-5ii">
-                                <rect key="frame" x="159" y="0.0" width="161" height="44"/>
+                                <rect key="frame" x="320" y="0.0" width="161" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Next">
@@ -189,11 +189,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="m6y-65-sxh" kind="push" id="Lym-Z0-mdh"/>
+                                    <segue destination="m6y-65-sxh" kind="push" identifier="SettingsSegue" id="Lym-Z0-mdh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nhI-Em-jvd">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cancel">
@@ -259,7 +259,10 @@
                                 <rect key="frame" x="80" y="57" width="160" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m6y-65-sxh" id="Oz0-cj-0dB"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Ns-vQ-w41">
                                 <rect key="frame" x="137" y="28" width="46" height="21"/>
@@ -281,6 +284,43 @@
             <point key="canvasLocation" x="-2230" y="-2263"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ConfirmationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="confirm:"/>
+                <relationship kind="outlet" name="confirm" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewLocation:"/>
+                <relationship kind="outlet" name="addNew" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableData" candidateClass="NSMutableArray"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="outlet" name="add" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="settings" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSMutableArray" superclassName="NSArray">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSMutableArray.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

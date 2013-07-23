@@ -16,6 +16,7 @@
 
 @synthesize mapView = _mapView;
 @synthesize touchMapCoordinate = _touchMapCoordinate;
+@synthesize pinDropped = _pinDropped;
 
 - (void)viewDidLoad
 {
@@ -64,6 +65,20 @@
     MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
     annot.coordinate = self.touchMapCoordinate;
     [self.mapView addAnnotation:annot];
+    
+    if(!self.pinDropped){
+        [self addNextButton];
+    }
+}
+
+- (void)addNextButton{
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         self.cancel.frame = CGRectMake(0, self.cancel.frame.origin.y, self.cancel.frame.size.width/2, self.cancel.frame.size.height);
+                         self.add.center = CGPointMake(self.cancel.frame.size.width+self.cancel.frame.size.width/2, self.add.center.y);
+                     }
+                     completion:^(BOOL finished){
+                     }];
 }
 
 //Only allows 1 pin per map
