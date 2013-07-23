@@ -13,5 +13,6 @@
 
 @property (nonatomic) CLLocationCoordinate2D location;
 @property (nonatomic, weak) NSString *name;
+@property (nonatomic) NSInteger *distance;
 
 @end

@@ -12,6 +12,18 @@
 @interface SettingsViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic) CLLocationCoordinate2D touchMapCoordinate;
-@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *longtitude;
+@property (weak, nonatomic) IBOutlet UILabel *latitude;
+@property (weak, nonatomic) IBOutlet UIButton *cancel;
+@property (weak, nonatomic) IBOutlet UITextField *distanceTextField;
+@property (weak, nonatomic) IBOutlet UISlider *distanceSlider;
+@property (weak, nonatomic) IBOutlet UIButton *add;
+
+@property (nonatomic) Boolean numberKeyboard;
+@property (nonatomic) Boolean alphabetKeyboard;
+
+- (IBAction)cancel:(id)sender;
+- (IBAction)add:(id)sender;
 
 @end
