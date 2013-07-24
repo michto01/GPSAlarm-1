@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 3 Screen Apps. All rights reserved.
 //
 
-#import "Alarm.h"
+#import "AlarmObject.h"
 
-@implementation Alarm
+@implementation AlarmObject
 
-@synthesize location;
-@synthesize name;
+@synthesize location = _location;
+@synthesize name = _name;
+@synthesize distance = _distance;
 
 @end

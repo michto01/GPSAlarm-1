@@ -14,10 +14,22 @@
 
 @implementation ConfirmationViewController
 
+@synthesize alarm = _alarm;
+@synthesize confirm = _confirm;
+@synthesize name = _name;
+@synthesize distance = _distance;
+@synthesize map = _map;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self.name setText:self.alarm.name];
+    [self.distance setText:[NSString stringWithFormat:@"%f", self.alarm.distance]];
+    
+    MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
+    annot.coordinate = self.alarm.location;
+    [self.map addAnnotation:annot];
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,7 +39,7 @@
 }
 
 - (IBAction)confirm:(id)sender {
-    //Set Alram
+    //Set Alarm
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

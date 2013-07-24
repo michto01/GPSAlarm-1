@@ -22,7 +22,7 @@
 		3C8F889317792B24005C643F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F889217792B24005C643F /* SettingsViewController.m */; };
 		3C8F889617792B39005C643F /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F889517792B39005C643F /* ConfirmationViewController.m */; };
 		3C8F889917792C40005C643F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F889817792C40005C643F /* MapViewController.m */; };
-		3C8F889D1779385A005C643F /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F889C1779385A005C643F /* Alarm.m */; };
+		3C8F889D1779385A005C643F /* AlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F889C1779385A005C643F /* AlarmObject.m */; };
 		3C8F889F177BBEE2005C643F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8F889E177BBEE2005C643F /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +50,8 @@
 		3C8F889517792B39005C643F /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		3C8F889717792C40005C643F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3C8F889817792C40005C643F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		3C8F889B1779385A005C643F /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
-		3C8F889C1779385A005C643F /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		3C8F889B1779385A005C643F /* AlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmObject.h; sourceTree = "<group>"; };
+		3C8F889C1779385A005C643F /* AlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmObject.m; sourceTree = "<group>"; };
 		3C8F889E177BBEE2005C643F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -132,14 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				3C7D113E176AAA3F00F0F44E /* MainStoryboard.storyboard */,
-				3C7D114A176AAA9800F0F44E /* MainViewController.h */,
-				3C7D114B176AAA9800F0F44E /* MainViewController.m */,
-				3C8F889117792B24005C643F /* SettingsViewController.h */,
-				3C8F889217792B24005C643F /* SettingsViewController.m */,
 				3C8F889417792B39005C643F /* ConfirmationViewController.h */,
 				3C8F889517792B39005C643F /* ConfirmationViewController.m */,
+				3C7D114A176AAA9800F0F44E /* MainViewController.h */,
+				3C7D114B176AAA9800F0F44E /* MainViewController.m */,
 				3C8F889717792C40005C643F /* MapViewController.h */,
 				3C8F889817792C40005C643F /* MapViewController.m */,
+				3C8F889117792B24005C643F /* SettingsViewController.h */,
+				3C8F889217792B24005C643F /* SettingsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -154,8 +154,8 @@
 		3C8F889A1779382F005C643F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3C8F889B1779385A005C643F /* Alarm.h */,
-				3C8F889C1779385A005C643F /* Alarm.m */,
+				3C8F889B1779385A005C643F /* AlarmObject.h */,
+				3C8F889C1779385A005C643F /* AlarmObject.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 				3C8F889317792B24005C643F /* SettingsViewController.m in Sources */,
 				3C8F889617792B39005C643F /* ConfirmationViewController.m in Sources */,
 				3C8F889917792C40005C643F /* MapViewController.m in Sources */,
-				3C8F889D1779385A005C643F /* Alarm.m in Sources */,
+				3C8F889D1779385A005C643F /* AlarmObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

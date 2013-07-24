@@ -91,8 +91,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Here is a preview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wpr-EN-fqN">
-                                <rect key="frame" x="94" y="356" width="132" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wpr-EN-fqN">
+                                <rect key="frame" x="160" y="356" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -113,6 +113,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Zzk-hU-p9r">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="l9a-9z-iQh" id="ejK-Zf-ubp"/>
+                                </connections>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Name)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nFv-ZW-yxj">
                                 <rect key="frame" x="132" y="385" width="57" height="21"/>
@@ -121,15 +124,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Address)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yko-8O-hGx">
-                                <rect key="frame" x="123" y="409" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Distance)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1td-z2-SP3">
-                                <rect key="frame" x="121" y="438" width="78" height="21"/>
+                                <rect key="frame" x="121" y="414" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -141,6 +137,9 @@
                     <navigationItem key="navigationItem" id="waG-Rp-MLO"/>
                     <connections>
                         <outlet property="confirm" destination="4GV-hg-T7Y" id="RNq-U7-033"/>
+                        <outlet property="distance" destination="1td-z2-SP3" id="AwG-DI-yAl"/>
+                        <outlet property="map" destination="Zzk-hU-p9r" id="0jo-IJ-bEK"/>
+                        <outlet property="name" destination="nFv-ZW-yxj" id="nYM-Aw-ReU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5O-aw-2Ff" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +254,7 @@
                                     <segue destination="l9a-9z-iQh" kind="push" id="Zcp-43-lum"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="yaW-l9-leT">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Default" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="yaW-l9-leT">
                                 <rect key="frame" x="34" y="103" width="266" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -370,6 +369,9 @@
             <relationships>
                 <relationship kind="action" name="confirm:"/>
                 <relationship kind="outlet" name="confirm" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="distance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
@@ -398,6 +400,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="sliderAction:"/>
+                <relationship kind="outlet" name="add" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="cancel" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="distanceSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="distanceTextField" candidateClass="UITextField"/>

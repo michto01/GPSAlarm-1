@@ -92,7 +92,6 @@
                               delegate:nil
                               cancelButtonTitle:@"Dismiss"
                               otherButtonTitles:nil];
-        
         [alert show];
         return false;
     }
@@ -103,7 +102,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)add:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AlarmObject *alarmObject = [[AlarmObject alloc] init];
+    [alarmObject setDistance:self.distanceSlider.value];
+    [alarmObject setName:self.nameTextField.text];
+    [alarmObject setLocation:self.touchMapCoordinate];
+    
+    ConfirmationViewController *controller = segue.destinationViewController;
+    [controller setAlarm:alarmObject];
 }
 
 @end

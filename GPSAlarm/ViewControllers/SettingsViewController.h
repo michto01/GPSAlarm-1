@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "AlarmObject.h"
+#import "ConfirmationViewController.h"
 
 @interface SettingsViewController : UIViewController <UITextFieldDelegate>
 
@@ -24,6 +26,6 @@
 @property (nonatomic) Boolean alphabetKeyboard;
 
 - (IBAction)cancel:(id)sender;
-- (IBAction)add:(id)sender;
+- (BOOL)checkDistanceSize:(NSString *)distance;
 
 @end

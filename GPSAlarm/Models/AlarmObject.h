@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface Alarm : NSObject
+@interface AlarmObject : NSObject
 
 @property (nonatomic) CLLocationCoordinate2D location;
 @property (nonatomic, weak) NSString *name;
-@property (nonatomic) NSInteger *distance;
+@property (nonatomic) float distance;
 
 @end

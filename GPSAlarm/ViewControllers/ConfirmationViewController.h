@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlarmObject.h"
 
-@interface ConfirmationViewController : UIViewController
+@interface ConfirmationViewController : UIViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *confirm;
+@property (weak, nonatomic) AlarmObject *alarm;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *distance;
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 
 @end
