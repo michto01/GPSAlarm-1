@@ -35,6 +35,10 @@
     [self.view addGestureRecognizer:singleFingerTap];
     [self.latitude setText:[NSString stringWithFormat:@"%f",self.touchMapCoordinate.latitude]];
     [self.longtitude setText:[NSString stringWithFormat:@"%f",self.touchMapCoordinate.longitude]];
+    
+    self.distanceTextField.text = [NSString stringWithFormat:@"%d", (NSInteger)roundf(self.distanceSlider.value)];
+    
+    [self.distanceSlider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -48,6 +52,12 @@
         self.numberKeyboard = false;
     }
     return true;
+}
+
+- (IBAction)sliderAction:(id)sender{
+    UISlider *slider = (UISlider *)sender;
+    float sliderValue = (float)(slider.value);
+    self.distanceTextField.text = [NSString stringWithFormat:@"%f", sliderValue];
 }
 
 //The event handling method
@@ -67,7 +77,25 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if([textField tag] == 0 && [self checkDistanceSize:textField.text]){
+        self.distanceSlider.value = (CGFloat)[textField.text floatValue];
+    }
     [textField resignFirstResponder];
+    return true;
+}
+
+- (BOOL)checkDistanceSize:(NSString *)distance{
+    if((CGFloat)[distance floatValue] > 10){
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Distance"
+                              message:@"The distance specified is larger than 10km"
+                              delegate:nil
+                              cancelButtonTitle:@"Dismiss"
+                              otherButtonTitles:nil];
+        
+        [alert show];
+        return false;
+    }
     return true;
 }
 
