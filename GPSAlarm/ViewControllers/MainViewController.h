@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet NSMutableArray *tableData;
 @property (weak, nonatomic) IBOutlet UIButton *addNew;
 
+@property (strong, nonatomic) NSManagedObjectContext *context;
+
 - (IBAction)addNewLocation:(id)sender;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
+#import "Alarm.h"
 
 @interface MainViewController ()
 
@@ -17,14 +19,18 @@
 @synthesize tableData = _tabBarData;
 @synthesize tableView = _tableView;
 @synthesize addNew = _addNew;
+@synthesize context = _context;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //Temp cell stuff
-    self.tableData = [NSMutableArray arrayWithObjects:@"Test 1", @"Test 2", @"Test 3", nil];
+        
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alarm" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.tableData = [NSMutableArray arrayWithArray:[self.context executeFetchRequest:fetchRequest error:&error]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,9 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addNewLocation:(id)sender{
-    
-}
+- (IBAction)addNewLocation:(id)sender{}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 2;
@@ -49,7 +53,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.tableData objectAtIndex:[indexPath row]];
+    Alarm *alarm = [self.tableData objectAtIndex:[indexPath row]];
+    
+    cell.textLabel.text = alarm.name;
     return cell;
 }
 

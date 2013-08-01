@@ -110,7 +110,7 @@
     [alarmObject setLocation:self.touchMapCoordinate];
     
     ConfirmationViewController *controller = segue.destinationViewController;
-    [controller setAlarm:alarmObject];
+    [controller setAlarmObject:alarmObject];
 }
 
 @end

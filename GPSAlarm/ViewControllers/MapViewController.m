@@ -82,8 +82,7 @@
 }
 
 //Only allows 1 pin per map
-- (void)removeAllPinsButUserLocation
-{
+- (void)removeAllPinsButUserLocation{
     MKUserLocation *userLocation = [self.mapView userLocation];
     NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:[self.mapView annotations]];
     if ( userLocation != nil ) {
@@ -94,8 +93,7 @@
     pins = nil;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -105,8 +103,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     SettingsViewController *controller = segue.destinationViewController;
     [controller setTouchMapCoordinate:self.touchMapCoordinate];
 }

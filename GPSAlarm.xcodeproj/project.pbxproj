@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C05792117AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C05791F17AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodeld */; };
+		3C05792717AA2D8E00BB2DF5 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C05792617AA2D8E00BB2DF5 /* Alarm.m */; };
 		3C7D1127176AAA3F00F0F44E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7D1126176AAA3F00F0F44E /* UIKit.framework */; };
 		3C7D1129176AAA3F00F0F44E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7D1128176AAA3F00F0F44E /* Foundation.framework */; };
 		3C7D112B176AAA3F00F0F44E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7D112A176AAA3F00F0F44E /* CoreGraphics.framework */; };
@@ -27,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C05792017AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPSAlarmDataModel.xcdatamodel; sourceTree = "<group>"; };
+		3C05792517AA2D8E00BB2DF5 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		3C05792617AA2D8E00BB2DF5 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		3C7D1123176AAA3F00F0F44E /* GPSAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7D1126176AAA3F00F0F44E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C7D1128176AAA3F00F0F44E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +168,9 @@
 		3C8F88A0177BBF58005C643F /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				3C05791F17AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodeld */,
+				3C05792517AA2D8E00BB2DF5 /* Alarm.h */,
+				3C05792617AA2D8E00BB2DF5 /* Alarm.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -240,6 +248,8 @@
 				3C8F889617792B39005C643F /* ConfirmationViewController.m in Sources */,
 				3C8F889917792C40005C643F /* MapViewController.m in Sources */,
 				3C8F889D1779385A005C643F /* AlarmObject.m in Sources */,
+				3C05792117AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodeld in Sources */,
+				3C05792717AA2D8E00BB2DF5 /* Alarm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +376,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C05791F17AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C05792017AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodel */,
+			);
+			currentVersion = 3C05792017AA24D900BB2DF5 /* GPSAlarmDataModel.xcdatamodel */;
+			path = GPSAlarmDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3C7D111B176AAA3F00F0F44E /* Project object */;
 }

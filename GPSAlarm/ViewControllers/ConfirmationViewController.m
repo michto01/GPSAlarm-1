@@ -7,6 +7,8 @@
 //
 
 #import "ConfirmationViewController.h"
+#import "AppDelegate.h"
+#import "Alarm.h"
 
 @interface ConfirmationViewController ()
 
@@ -14,7 +16,7 @@
 
 @implementation ConfirmationViewController
 
-@synthesize alarm = _alarm;
+@synthesize alarmObject = _alarmObject;
 @synthesize confirm = _confirm;
 @synthesize name = _name;
 @synthesize distance = _distance;
@@ -24,11 +26,11 @@
 {
     [super viewDidLoad];
     
-    [self.name setText:self.alarm.name];
-    [self.distance setText:[NSString stringWithFormat:@"%f", self.alarm.distance]];
+    [self.name setText:self.alarmObject.name];
+    [self.distance setText:[NSString stringWithFormat:@"%f", self.alarmObject.distance]];
     
     MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
-    annot.coordinate = self.alarm.location;
+    annot.coordinate = self.alarmObject.location;
     [self.map addAnnotation:annot];
 }
 
@@ -42,7 +44,7 @@
             span.latitudeDelta=0.05;
             span.longitudeDelta=0.05;
             
-            CLLocationCoordinate2D location = self.alarm.location;
+            CLLocationCoordinate2D location = self.alarmObject.location;
             
             region.span = span;
             region.center = location;
@@ -60,6 +62,13 @@
 }
 
 - (IBAction)confirm:(id)sender {
+    NSManagedObjectContext *context = [(AppDelegate *)[[UIApplication sharedApplication] self] managedObjectContext];
+    Alarm *alarm = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:context];
+    alarm.name = self.alarmObject.name;
+    alarm.latitude = [NSNumber numberWithDouble: self.alarmObject.location.latitude];
+    alarm.longtitude = [NSNumber numberWithDouble: self.alarmObject.location.longitude];
+    alarm.distance = [NSNumber numberWithFloat: self.alarmObject.distance];
+    
     //Set Alarm
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
