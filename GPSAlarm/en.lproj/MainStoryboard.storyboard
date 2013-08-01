@@ -109,8 +109,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="edit:" destination="l9a-9z-iQh" eventType="touchUpInside" id="bYP-We-oMM"/>
+                                </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Zzk-hU-p9r">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Zzk-hU-p9r">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -368,6 +371,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmationViewController.h"/>
             <relationships>
                 <relationship kind="action" name="confirm:"/>
+                <relationship kind="action" name="edit:"/>
                 <relationship kind="outlet" name="confirm" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="distance" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="map" candidateClass="MKMapView"/>

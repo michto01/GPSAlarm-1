@@ -12,7 +12,7 @@
 @interface ConfirmationViewController : UIViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *confirm;
-@property (weak, nonatomic) AlarmObject *alarm;
+@property (strong, nonatomic) AlarmObject *alarm;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *distance;
 @property (weak, nonatomic) IBOutlet MKMapView *map;

@@ -32,6 +32,27 @@
     [self.map addAnnotation:annot];
 }
 
+//Zooms into the users exact location
+- (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views {
+    for(MKAnnotationView *annotationView in views) {
+        if(annotationView.annotation == mv.userLocation) {
+            MKCoordinateRegion region;
+            MKCoordinateSpan span;
+            
+            span.latitudeDelta=0.05;
+            span.longitudeDelta=0.05;
+            
+            CLLocationCoordinate2D location = self.alarm.location;
+            
+            region.span = span;
+            region.center = location;
+            
+            [mv setRegion:region animated:TRUE];
+            [mv regionThatFits:region];
+        }
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -41,6 +62,11 @@
 - (IBAction)confirm:(id)sender {
     //Set Alarm
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+//Goes back to home screen
+- (IBAction)edit:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
