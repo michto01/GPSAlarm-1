@@ -62,12 +62,20 @@
 }
 
 - (IBAction)confirm:(id)sender {
-    NSManagedObjectContext *context = [(AppDelegate *)[[UIApplication sharedApplication] self] managedObjectContext];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
     Alarm *alarm = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:context];
     alarm.name = self.alarmObject.name;
     alarm.latitude = [NSNumber numberWithDouble: self.alarmObject.location.latitude];
     alarm.longtitude = [NSNumber numberWithDouble: self.alarmObject.location.longitude];
     alarm.distance = [NSNumber numberWithFloat: self.alarmObject.distance];
+    
+    NSError *error;
+    if (![[appDelegate managedObjectContext] save:&error])
+    {
+        NSLog(@"there was an error in Save:%@",error);
+    }
     
     //Set Alarm
     [self.navigationController popToRootViewControllerAnimated:YES];

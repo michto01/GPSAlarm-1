@@ -19,18 +19,24 @@
 @synthesize tableData = _tabBarData;
 @synthesize tableView = _tableView;
 @synthesize addNew = _addNew;
-@synthesize context = _context;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-        
+    
+    
+    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alarm" inManagedObjectContext:self.context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alarm" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSError *error;
-    self.tableData = [NSMutableArray arrayWithArray:[self.context executeFetchRequest:fetchRequest error:&error]];
+    self.tableData = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:&error]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +48,7 @@
 - (IBAction)addNewLocation:(id)sender{}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return [self.tableData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -52,9 +58,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+
     Alarm *alarm = [self.tableData objectAtIndex:[indexPath row]];
-    
     cell.textLabel.text = alarm.name;
     return cell;
 }
